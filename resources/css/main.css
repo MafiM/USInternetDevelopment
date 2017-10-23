@@ -1,0 +1,20 @@
+.top-space {
+    margin-top: 50px;
+}
+
+.create-account-panel{
+    position: relative;
+}
+.create-account-panel .panel{
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 90%;
+    z-index: 1000;
+}
+.breadcrumb li.active a {
+    color: #00CC00;
+}
+.activityPanel li{
+    border-bottom: 1px solid #eee;
+}
