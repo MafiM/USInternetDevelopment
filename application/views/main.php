@@ -95,17 +95,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <?php
                                             if (strcmp($account->place,'confirmed') === 0){
                                                 ?>
-                                                <a href="#" id="toSetup" data-value="<?php echo $account->id; ?>" data-toggle="modal" data-target="#setupModal">Setup</a>
+                                                <a href="#" class="toSetup" data-value="<?php echo $account->id; ?>" data-toggle="modal" data-target="#setupModal">Setup</a>
                                                 <?php
                                             } else if (strcmp($account->place,'setup') === 0){
                                                 ?>
-                                                <a href="#" id="toActivated" data-value="<?php echo $account->id; ?>" data-toggle="modal" data-target="#setupModal">Activate</a>
+                                                <a href="#" class="toActivated" data-value="<?php echo $account->id; ?>" data-toggle="modal" data-target="#setupModal">Activate</a>
                                                 <br>
-                                                <a href="Main/deactivate/<?php echo $account->id.'/'.$account->place; ?>" id="deactivate" data-value="<?php echo $account->id; ?>">Cancel</a>
+                                                <a href="Main/deactivate/<?php echo $account->id.'/'.$account->place; ?>" class="deactivate" data-value="<?php echo $account->id; ?>">Cancel</a>
                                                 <?php
                                             } else if (strcmp($account->place,'activated') === 0){
                                                 ?>
-                                                <a href="Main/deactivate/<?php echo $account->id.'/'.$account->place; ?>" id="deactivate" data-value="<?php echo $account->id; ?>">Deactivate</a>
+                                                <a href="Main/deactivate/<?php echo $account->id.'/'.$account->place; ?>" class="deactivate" data-value="<?php echo $account->id; ?>">Deactivate</a>
                                                 <?php
                                             }
                                             ?>
@@ -184,6 +184,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     ' to ' . $trans->to;
                                 if ($trans->message !== null)
                                     $text .= ' with log message "'. $trans->message . '"';
+                                $text .= ' on <span class="green-txt"><em>' . date('m/d/Y H:i:s', strtotime($trans->timestamp)) . '</em></span>';
                                 echo '<li>' . $text . '</li>';
                             }
                         }
@@ -194,11 +195,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <ul class="list-unstyled activities-list">
                         <?php
                         foreach ($transitions as $trans){
-                            if (date('M Y d', strtotime('-1 weeks')) < strtotime($trans->timestamp)){
+                            if (date('M Y d', strtotime('-1 week')) < strtotime($trans->timestamp)){
                                 $text = $trans->first_name . ' moved account from ' . $trans->from .
                                     ' to ' . $trans->to;
                                 if ($trans->message !== null)
                                     $text .= ' with log message "'. $trans->message . '"';
+                                $text .= ' on <span class="green-txt"><em>' . date('m/d/Y H:i:s', strtotime($trans->timestamp)) . '</em></span>';
                                 echo '<li>' . $text . '</li>';
                             }
                         }
@@ -214,6 +216,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     ' to ' . $trans->to;
                                 if ($trans->message !== null)
                                     $text .= ' with log message "'. $trans->message . '"';
+                                $text .= ' on <span class="green-txt"><em>' . date('m/d/Y H:i:s', strtotime($trans->timestamp)) . '</em></span>';
                                 echo '<li>' . $text . '</li>';
                             }
                         }

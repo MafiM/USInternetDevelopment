@@ -12,7 +12,7 @@
     width: 90%;
     z-index: 1000;
 }
-.breadcrumb li.active a {
+.breadcrumb li.active a, .green-txt {
     color: #00CC00;
 }
 .activityPanel li{

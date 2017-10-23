@@ -34,6 +34,6 @@ class Account extends CI_Model
         $this->db->update('accounts_tbl', array('place'=>$place, 'active'=>$active), array('id'=>$this->input->post('accountId')));
     }
     public function DeactivateAccount($id){
-        $this->db->update('accounts_tbl', array('place'=>'deactivated'), array('id'=>$id));
+        $this->db->update('accounts_tbl', array('place'=>'deactivated', 'active'=> 0), array('id'=>$id));
     }
 }

@@ -63,6 +63,6 @@ class Main extends CI_Controller {
         $this->Account->updateAccountStatus($to, $active);
         $this->Transition->insertTransition($transition);
 
-        redirect($this->uri->uri_string());
+        redirect('/main', 'refresh');
     }
 }

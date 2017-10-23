@@ -13,10 +13,10 @@ $(document).ready(function (){
        $(this).parent('li').addClass('active');
        e.preventDefault();
    });
-   $('#toSetup').click(function () {
+   $('.toSetup').click(function () {
        openModal($(this).attr('data-value'), 'Main/toSetup');
    });
-    $('#toActivated').click(function () {
+    $('.toActivated').click(function () {
         openModal($(this).attr('data-value'), 'Main/activate');
     });
     $('#activityBreadcrumb a').click(function (e) {
